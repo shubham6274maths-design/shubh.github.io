@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>For You ❤️</title>
+    <style>
+        body {
+            background-color: #0f172a;
+            color: white;
+            text-align: center;
+            font-family: Arial;
+            padding: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background: pink;
+            border: none;
+            cursor: pointer;
+        }
+        #hidden {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Hey you ❤️</h1>
+<p>I made something for you...</p>
+
+<button onclick="showMessage()">Click me</button>
+
+<div id="hidden">
+    <h2>I miss you 🥺</h2>
+    <p>No matter the distance, you're always with me.</p>
+    <p>You mean more to me than you know ❤️</p>
+</div>
+
+<script>
+function showMessage() {
+    document.getElementById("hidden").style.display = "block";
+}
+</script>
+
+</body>
+</html>
