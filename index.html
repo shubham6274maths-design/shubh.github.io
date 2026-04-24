@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>For Jennifer ❤️</title>
+    <title>For Jennie ❤️</title>
 
     <style>
         body {
@@ -11,36 +11,66 @@
             color: white;
             text-align: center;
             font-family: Arial;
+            overflow-x: hidden;
+        }
+
+        /* ✨ Stars background */
+        .stars {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: transparent;
             overflow: hidden;
         }
 
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            animation: twinkle 2s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+
         .container {
-            position: relative;
-            top: 15%;
+            margin-top: 120px;
             padding: 20px;
         }
 
         h1 {
-            font-size: 38px;
+            font-size: 40px;
+            animation: fadeIn 3s;
         }
 
         button {
-            padding: 12px 25px;
+            padding: 14px 28px;
             font-size: 18px;
             background: pink;
             border: none;
-            border-radius: 20px;
+            border-radius: 25px;
             cursor: pointer;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
 
         #message {
             display: none;
-            margin-top: 25px;
+            margin-top: 30px;
             animation: fadeIn 2s;
-            max-width: 600px;
+            max-width: 650px;
             margin-left: auto;
             margin-right: auto;
-            line-height: 1.6;
+            line-height: 1.7;
+            font-size: 18px;
         }
 
         @keyframes fadeIn {
@@ -48,6 +78,7 @@
             to {opacity: 1;}
         }
 
+        /* 💖 floating hearts */
         .heart {
             position: absolute;
             color: pink;
@@ -63,34 +94,48 @@
 
 <body>
 
+<div class="stars" id="stars"></div>
+
 <div class="container">
     <h1 id="typing"></h1>
-    <button onclick="start()">Click here ❤️</button>
+    <button onclick="start()">Click here my kiddo ❤️</button>
 
     <div id="message">
+
         <p>Jennie…</p>
 
-        <p>It’s almost been a whole year of us… and I still find it crazy how someone so far away can feel this close to my heart.</p>
+        <p>I don’t even know where to start… because one year with you doesn’t feel like “just time”… it feels like something I lived, felt, and carried with me every single day.</p>
 
-        <p>My kiddo, you’ve made my life softer, calmer… and honestly, a lot happier than it used to be.</p>
+        <p>I still remember how it all began… small conversations, random moments… and somehow, without even realizing it, you became the part of my day I started waiting for.</p>
 
-        <p>We’ve had distance, late nights, missed moments… but somehow, none of that ever made me doubt us.</p>
+        <p>And now look at us… almost a whole year later.</p>
 
-        <p>Because you… you’ve always felt right.</p>
+        <p>My kiddo, you’ve been more than just someone I love… you’ve been my calm on bad days, my smile when nothing made sense, and the one person who made distance feel smaller than it actually is.</p>
 
-        <p>I don’t just love you for what you are… I love you for how you make me feel when I’m with you, even from miles away.</p>
+        <p>There were nights we stayed up longer than we should’ve… days we missed each other more than we admitted… but somehow, we never stopped choosing each other.</p>
 
-        <p>And if I had to choose again…</p>
+        <p>And that’s what I love the most about us… it’s never been perfect, but it’s always been real.</p>
 
-        <p><b>I’d still choose you. Every single time.</b></p>
+        <p>You don’t even realize how much you’ve changed me… how much softer I’ve become, how much I’ve learned to care, to stay, to feel deeply… all because of you.</p>
 
-        <p>Happy almost 1 year, Jennie ❤️</p>
+        <p>Sometimes I wish I could just pause everything… close the distance… and just sit next to you without saying anything… because even silence with you would mean everything.</p>
 
-        <p>I’m yours… and I’m not going anywhere.</p>
+        <p><b>And if there’s one thing I know for sure…</b></p>
+
+        <p><b>I never want to lose this. I never want to lose you.</b></p>
+
+        <p>Happy almost one year, Jennie ❤️</p>
+
+        <p>I don’t just love you… I’m grateful for you.</p>
+
+        <p>Always yours,</p>
+        <p>— the one who will keep choosing you.</p>
+
     </div>
 </div>
 
 <script>
+/* typing intro */
 let text = "Hey Jennie ❤️";
 let i = 0;
 
@@ -101,13 +146,14 @@ function typeWriter() {
         setTimeout(typeWriter, 80);
     }
 }
-
 typeWriter();
 
+/* click reveal */
 function start() {
     document.getElementById("message").style.display = "block";
 }
 
+/* floating hearts */
 setInterval(() => {
     let heart = document.createElement("div");
     heart.className = "heart";
@@ -120,6 +166,15 @@ setInterval(() => {
         heart.remove();
     }, 6000);
 }, 300);
+
+/* stars generator */
+for (let i = 0; i < 100; i++) {
+    let star = document.createElement("div");
+    star.className = "star";
+    star.style.left = Math.random() * 100 + "%";
+    star.style.top = Math.random() * 100 + "%";
+    document.getElementById("stars").appendChild(star);
+}
 </script>
 
 </body>
