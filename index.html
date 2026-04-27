@@ -6,112 +6,113 @@
     <style>
         body {
             margin: 0;
-            background: linear-gradient(to bottom, #000, #1a1a1a);
+            background: black;
             color: white;
             font-family: 'Segoe UI', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        .container {
-            text-align: center;
-            max-width: 650px;
-            padding: 30px;
-        }
-
-        h1 {
-            font-size: 32px;
-            margin-bottom: 15px;
-        }
-
-        .content {
-            font-size: 18px;
-            line-height: 1.6;
-            opacity: 0.9;
+            overflow: hidden;
         }
 
         .page {
-            display: none;
-            animation: fadeIn 1s ease;
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+
+        .active {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            max-width: 600px;
+            font-size: 18px;
+            line-height: 1.6;
         }
 
         button {
-            margin-top: 30px;
+            margin-top: 40px;
             padding: 12px 25px;
-            background: #ff6b81;
+            background: pink;
             border: none;
             border-radius: 25px;
-            color: white;
+            font-size: 16px;
             cursor: pointer;
         }
 
         button:hover {
-            background: #ff4757;
-        }
-
-        @keyframes fadeIn {
-            from {opacity: 0; transform: translateY(10px);}
-            to {opacity: 1; transform: translateY(0);}
+            background: hotpink;
         }
     </style>
 </head>
 
 <body>
 
-<div class="container">
-
-    <!-- PAGE 1 -->
-    <div id="page1" class="page" style="display:block;">
-        <h1>Jennie… do you remember how it all started?</h1>
-        <p class="content">
-            Write your personal message here… like how it began, first chats, first feelings…
-        </p>
-    </div>
-
-    <!-- PAGE 2 -->
-    <div id="page2" class="page">
-        <h1>You stayed… and that changed everything</h1>
-        <p class="content">
-            Write about how she became part of your daily life…
-        </p>
-    </div>
-
-    <!-- PAGE 3 -->
-    <div id="page3" class="page">
-        <h1>You became my comfort</h1>
-        <p class="content">
-            Talk about emotional support, memories, calls, late nights…
-        </p>
-    </div>
-
-    <!-- PAGE 4 -->
-    <div id="page4" class="page">
-        <h1>My kiddo… you mean more than you know</h1>
-        <p class="content">
-            Write your deeper feelings here…
-        </p>
-    </div>
-
-    <!-- PAGE 5 -->
-    <div id="page5" class="page">
-        <h1>I didn’t just fall for you… I stayed</h1>
-        <p class="content">
-            This is your strongest emotional part…
-        </p>
-    </div>
-
-    <!-- PAGE 6 -->
-    <div id="page6" class="page">
-        <h1>Happy almost 1 year, Jennie ❤️</h1>
-        <p class="content">
-            Final message + future + gratitude + “I choose you”
-        </p>
-    </div>
-
+<!-- PAGE 1 -->
+<div id="page1" class="page active">
+    <h1>Jennie… do you remember how it all started?</h1>
+    <p>
+        Write your personal story here… how it began, first chats, first feeling…
+    </p>
     <button onclick="next()">Next ❤️</button>
+</div>
 
+<!-- PAGE 2 -->
+<div id="page2" class="page">
+    <h1>You stayed… and that changed everything</h1>
+    <p>
+        Write how she became part of your daily life…
+    </p>
+    <button onclick="next()">Next ❤️</button>
+</div>
+
+<!-- PAGE 3 -->
+<div id="page3" class="page">
+    <h1>You became my comfort</h1>
+    <p>
+        Talk about calls, memories, late nights…
+    </p>
+    <button onclick="next()">Next ❤️</button>
+</div>
+
+<!-- PAGE 4 -->
+<div id="page4" class="page">
+    <h1>My kiddo… you mean more than you know</h1>
+    <p>
+        Your deeper emotional part…
+    </p>
+    <button onclick="next()">Next ❤️</button>
+</div>
+
+<!-- PAGE 5 -->
+<div id="page5" class="page">
+    <h1>I didn’t just fall for you… I stayed</h1>
+    <p>
+        Strong emotional message…
+    </p>
+    <button onclick="next()">Next ❤️</button>
+</div>
+
+<!-- PAGE 6 -->
+<div id="page6" class="page">
+    <h1>Happy almost 1 year, Jennie ❤️</h1>
+    <p>
+        Final message… future… gratitude… “I choose you”
+    </p>
 </div>
 
 <script>
@@ -119,12 +120,12 @@
 let current = 1;
 
 function next() {
-    document.getElementById("page" + current).style.display = "none";
+    document.getElementById("page" + current).classList.remove("active");
     current++;
 
     let nextPage = document.getElementById("page" + current);
     if (nextPage) {
-        nextPage.style.display = "block";
+        nextPage.classList.add("active");
     }
 }
 
