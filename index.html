@@ -6,45 +6,69 @@
     <style>
         body {
             margin: 0;
-            background: black;
+            background: linear-gradient(to bottom, #000000, #1a1a1a);
             color: white;
-            text-align: center;
-            font-family: Arial;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
             overflow-x: hidden;
         }
 
         .container {
-            margin-top: 80px;
-            padding: 20px;
-            position: relative;
-            z-index: 2;
+            text-align: center;
+            max-width: 600px;
+            padding: 30px;
         }
 
         h1 {
-            font-size: 40px;
+            font-size: 36px;
+            margin-bottom: 20px;
         }
 
         .msg {
             display: none;
             font-size: 18px;
-            margin: 20px auto;
-            max-width: 600px;
-            animation: fadeIn 1.5s;
+            line-height: 1.6;
+            margin: 20px 0;
+            animation: fadeIn 1s ease;
+        }
+
+        .buttons {
+            margin-top: 30px;
         }
 
         button {
             padding: 12px 25px;
-            font-size: 18px;
-            background: pink;
+            font-size: 16px;
+            background: #ff6b81;
             border: none;
-            border-radius: 20px;
+            border-radius: 25px;
+            color: white;
             cursor: pointer;
-            margin-top: 30px;
+            margin: 10px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #ff4757;
+            transform: scale(1.05);
+        }
+
+        #secretBtn {
+            background: transparent;
+            border: 1px solid #888;
+            font-size: 14px;
+        }
+
+        #secretBtn:hover {
+            background: #333;
         }
 
         @keyframes fadeIn {
-            from {opacity: 0;}
-            to {opacity: 1;}
+            from {opacity: 0; transform: translateY(10px);}
+            to {opacity: 1; transform: translateY(0);}
         }
 
         /* ✨ stars */
@@ -64,7 +88,7 @@
         /* 💖 hearts */
         .heart {
             position: absolute;
-            color: pink;
+            color: #ff6b81;
             animation: float 6s linear infinite;
         }
 
@@ -72,6 +96,13 @@
             0% { transform: translateY(100vh); opacity: 1; }
             100% { transform: translateY(-10vh); opacity: 0; }
         }
+
+        #secretMsg {
+            margin-top: 20px;
+            font-style: italic;
+            opacity: 0.8;
+        }
+
     </style>
 </head>
 
@@ -107,16 +138,15 @@
     </div>
 
     <div id="message7" class="msg">
-        Happy almost 1 year, Jennie ❤️  
+        Happy almost 1 year, Jennie ❤️ <br><br>
         I choose you. Every single time.
     </div>
 
     <!-- BUTTONS -->
-    <button onclick="next()">Next ❤️</button>
-
-    <br><br>
-
-    <button onclick="secret()">Don’t click this 👀</button>
+    <div class="buttons">
+        <button onclick="next()">Next ❤️</button>
+        <button id="secretBtn" onclick="secret()">Don’t click 👀</button>
+    </div>
 
     <p id="secretMsg" style="display:none;">
         I love you more than I show, Jennie… and I always will ❤️
@@ -167,10 +197,10 @@ setInterval(() => {
     document.body.appendChild(heart);
 
     setTimeout(() => heart.remove(), 6000);
-}, 300);
+}, 400);
 
 /* stars */
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < 80; i++) {
     let star = document.createElement("div");
     star.className = "star";
     star.style.left = Math.random() * 100 + "%";
