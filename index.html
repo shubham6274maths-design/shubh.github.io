@@ -14,8 +14,10 @@
         }
 
         .container {
-            margin-top: 100px;
+            margin-top: 80px;
             padding: 20px;
+            position: relative;
+            z-index: 2;
         }
 
         h1 {
@@ -27,7 +29,7 @@
             font-size: 18px;
             margin: 20px auto;
             max-width: 600px;
-            animation: fadeIn 2s;
+            animation: fadeIn 1.5s;
         }
 
         button {
@@ -37,7 +39,7 @@
             border: none;
             border-radius: 20px;
             cursor: pointer;
-            margin-top: 20px;
+            margin-top: 30px;
         }
 
         @keyframes fadeIn {
@@ -70,25 +72,6 @@
             0% { transform: translateY(100vh); opacity: 1; }
             100% { transform: translateY(-10vh); opacity: 0; }
         }
-
-        /* 📸 images */
-        img {
-            width: 220px;
-            border-radius: 20px;
-            margin: 10px;
-        }
-
-        .fade-pop {
-            opacity: 0;
-            transform: scale(0.8);
-            transition: 1.5s;
-        }
-
-        .fade-pop.show {
-            opacity: 1;
-            transform: scale(1);
-        }
-
     </style>
 </head>
 
@@ -98,7 +81,7 @@
 
     <h1 id="typing"></h1>
 
-    <!-- 💌 STORY -->
+    <!-- STORY -->
     <div id="message1" class="msg" style="display:block;">
         Jennie… do you remember how it all started?
     </div>
@@ -128,17 +111,11 @@
         I choose you. Every single time.
     </div>
 
-    <!-- 📸 IMAGES -->
-    <img id="firstMemory" src="YOUR_IMAGE1_LINK" class="fade-pop">
-    <img id="secondMemory" src="YOUR_IMAGE2_LINK" class="fade-pop">
-
-    <br>
-
+    <!-- BUTTONS -->
     <button onclick="next()">Next ❤️</button>
 
     <br><br>
 
-    <!-- 🎁 SECRET -->
     <button onclick="secret()">Don’t click this 👀</button>
 
     <p id="secretMsg" style="display:none;">
@@ -149,7 +126,7 @@
 
 <script>
 
-/* typing intro */
+/* typing */
 let text = "Hey Jennie ❤️";
 let i = 0;
 
@@ -162,7 +139,7 @@ function typeWriter() {
 }
 typeWriter();
 
-/* story flow */
+/* story */
 let current = 1;
 
 function next() {
@@ -173,18 +150,9 @@ function next() {
     if (nextMsg) {
         nextMsg.style.display = "block";
     }
-
-    /* show images at steps */
-    if (current === 3) {
-        document.getElementById("firstMemory").classList.add("show");
-    }
-
-    if (current === 5) {
-        document.getElementById("secondMemory").classList.add("show");
-    }
 }
 
-/* secret message */
+/* secret */
 function secret() {
     document.getElementById("secretMsg").style.display = "block";
 }
