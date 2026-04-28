@@ -1,132 +1,77 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>For Jennie ❤️</title>
+    <title>Hey Jennie ❤️</title>
 
     <style>
         body {
             margin: 0;
-            background: black;
-            color: white;
-            font-family: 'Segoe UI', sans-serif;
-            overflow: hidden;
-        }
-
-        .page {
-            position: absolute;
-            width: 100%;
             height: 100vh;
-            top: 0;
-            left: 0;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            padding: 20px;
-            opacity: 0;
-            transition: opacity 0.8s ease;
+            background: #ffe6eb;
+            font-family: Arial;
         }
 
-        .active {
-            opacity: 1;
-            z-index: 1;
+        .box {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
         h1 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-
-        p {
-            max-width: 600px;
-            font-size: 18px;
-            line-height: 1.6;
+            font-size: 26px;
         }
 
         button {
-            margin-top: 40px;
             padding: 12px 25px;
-            background: pink;
+            margin: 10px;
+            font-size: 18px;
             border: none;
-            border-radius: 25px;
-            font-size: 16px;
+            border-radius: 20px;
             cursor: pointer;
         }
 
-        button:hover {
-            background: hotpink;
+        #meBtn {
+            background: #ff4d6d;
+            color: white;
+        }
+
+        #youBtn {
+            background: #ddd;
+            position: absolute;
         }
     </style>
 </head>
 
 <body>
 
-<!-- PAGE 1 -->
-<div id="page1" class="page active">
-    <h1>Jennie… do you remember how it all started?</h1>
-    <p>
-        Write your personal story here… how it began, first chats, first feeling…
-    </p>
-    <button onclick="next()">Next ❤️</button>
-</div>
+<div class="box">
+    <h1>Who's more cute? 😌</h1>
 
-<!-- PAGE 2 -->
-<div id="page2" class="page">
-    <h1>You stayed… and that changed everything</h1>
-    <p>
-        Write how she became part of your daily life…
-    </p>
-    <button onclick="next()">Next ❤️</button>
-</div>
-
-<!-- PAGE 3 -->
-<div id="page3" class="page">
-    <h1>You became my comfort</h1>
-    <p>
-        Talk about calls, memories, late nights…
-    </p>
-    <button onclick="next()">Next ❤️</button>
-</div>
-
-<!-- PAGE 4 -->
-<div id="page4" class="page">
-    <h1>My kiddo… you mean more than you know</h1>
-    <p>
-        Your deeper emotional part…
-    </p>
-    <button onclick="next()">Next ❤️</button>
-</div>
-
-<!-- PAGE 5 -->
-<div id="page5" class="page">
-    <h1>I didn’t just fall for you… I stayed</h1>
-    <p>
-        Strong emotional message…
-    </p>
-    <button onclick="next()">Next ❤️</button>
-</div>
-
-<!-- PAGE 6 -->
-<div id="page6" class="page">
-    <h1>Happy almost 1 year, Jennie ❤️</h1>
-    <p>
-        Final message… future… gratitude… “I choose you”
-    </p>
+    <button id="meBtn" onclick="goNext()">Me ❤️</button>
+    <button id="youBtn">You 😏</button>
 </div>
 
 <script>
 
-let current = 1;
+/* moving button */
+let youBtn = document.getElementById("youBtn");
 
-function next() {
-    document.getElementById("page" + current).classList.remove("active");
-    current++;
+youBtn.addEventListener("mouseover", () => {
+    let x = Math.random() * window.innerWidth - 100;
+    let y = Math.random() * window.innerHeight - 50;
 
-    let nextPage = document.getElementById("page" + current);
-    if (nextPage) {
-        nextPage.classList.add("active");
-    }
+    youBtn.style.left = x + "px";
+    youBtn.style.top = y + "px";
+});
+
+/* go to main project */
+function goNext() {
+    window.location.href = "main.html";
 }
 
 </script>
