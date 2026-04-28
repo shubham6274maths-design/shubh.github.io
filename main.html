@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>For Jennie ❤️</title>
+
+    <style>
+        body {
+            margin: 0;
+            background: linear-gradient(to bottom, #000000, #1a1a1a);
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 600px;
+            padding: 30px;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .msg {
+            display: none;
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 20px 0;
+            animation: fadeIn 1s ease;
+        }
+
+        .buttons {
+            margin-top: 30px;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 16px;
+            background: #ff6b81;
+            border: none;
+            border-radius: 25px;
+            color: white;
+            cursor: pointer;
+            margin: 10px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #ff4757;
+            transform: scale(1.05);
+        }
+
+        #secretBtn {
+            background: transparent;
+            border: 1px solid #888;
+            font-size: 14px;
+        }
+
+        #secretBtn:hover {
+            background: #333;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(10px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        /* ✨ stars */
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            animation: twinkle 2s infinite;
+        }
+
+        @keyframes twinkle {
+            0%,100% {opacity: 0.2;}
+            50% {opacity: 1;}
+        }
+
+        /* 💖 hearts */
+        .heart {
+            position: absolute;
+            color: #ff6b81;
+            animation: float 6s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh); opacity: 1; }
+            100% { transform: translateY(-10vh); opacity: 0; }
+        }
+
+        #secretMsg {
+            margin-top: 20px;
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1 id="typing"></h1>
+
+    <!-- STORY -->
+    <div id="message1" class="msg" style="display:block;">
+        Jennie… do you remember how it all started?
+    </div>
+
+    <div id="message2" class="msg">
+        It wasn’t anything huge… just small moments… but somehow, you stayed.
+    </div>
+
+    <div id="message3" class="msg">
+        And slowly, you became my habit… my comfort… my favorite part of every day.
+    </div>
+
+    <div id="message4" class="msg">
+        My kiddo… you don’t even realize how much you mean to me.
+    </div>
+
+    <div id="message5" class="msg">
+        That night we talked till late… saying “last message” again and again… I still remember that.
+    </div>
+
+    <div id="message6" class="msg">
+        I didn’t just fall for you… <b>I stayed.</b>
+    </div>
+
+    <div id="message7" class="msg">
+        Happy almost 1 year, Jennie ❤️ <br><br>
+        I choose you. Every single time.
+    </div>
+
+    <!-- BUTTONS -->
+    <div class="buttons">
+        <button onclick="next()">Next ❤️</button>
+        <button id="secretBtn" onclick="secret()">Don’t click 👀</button>
+    </div>
+
+    <p id="secretMsg" style="display:none;">
+        I love you more than I show, Jennie… and I always will ❤️
+    </p>
+
+</div>
+
+<script>
+
+/* typing */
+let text = "Hey Jennie ❤️";
+let i = 0;
+
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 80);
+    }
+}
+typeWriter();
+
+/* story */
+let current = 1;
+
+function next() {
+    document.getElementById("message" + current).style.display = "none";
+    current++;
+
+    let nextMsg = document.getElementById("message" + current);
+    if (nextMsg) {
+        nextMsg.style.display = "block";
+    }
+}
+
+/* secret */
+function secret() {
+    document.getElementById("secretMsg").style.display = "block";
+}
+
+/* hearts */
+setInterval(() => {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+}, 400);
+
+/* stars */
+for (let i = 0; i < 80; i++) {
+    let star = document.createElement("div");
+    star.className = "star";
+    star.style.left = Math.random() * 100 + "%";
+    star.style.top = Math.random() * 100 + "%";
+    document.body.appendChild(star);
+}
+
+</script>
+
+</body>
+</html>
