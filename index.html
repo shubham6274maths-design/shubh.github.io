@@ -89,7 +89,11 @@ button:hover {
         <button onclick="startStory()">Me 😎</button>
         <button id="noBtn">You 😏</button>
     </div>
-
+  <!-- AUDIO -->
+  <audio id="bgMusic" loop>
+    <source src="bachelor-adiye-lyric-video-gv_FsuMAwyB.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
     <!-- MAIN CONTENT -->
     <div id="mainContent">
 
@@ -130,9 +134,12 @@ noBtn.addEventListener("mouseover", () => {
 
 /* start story */
 function startStory() {
-    document.getElementById("intro").style.display = "none";
-    document.getElementById("mainContent").style.display = "block";
-}
+      document.getElementById("intro").style.display = "none";
+      document.getElementById("mainContent").style.display = "block";
+      typeWriter();
+      let music = document.getElementById("bgMusic");
+      music.play();
+    }
 
 /* typing */
 let text = "Hey Jennie ❤️";
